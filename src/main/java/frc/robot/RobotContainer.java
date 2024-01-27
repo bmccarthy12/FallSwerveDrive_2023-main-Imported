@@ -41,6 +41,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Commands.TeleopSwerve;
 import frc.robot.Subsystems.Swerve;
+import frc.robot.Subsystems.Limelight;
 import frc.robot.Commands.toggleSpeed;
 
 
@@ -72,6 +73,7 @@ public class RobotContainer {
 
   /* Subsystems */
   private final Swerve s_Swerve = new Swerve();
+  private final Limelight limelight = new Limelight();
 
   private final SendableChooser<Command> chooser;
 
@@ -90,6 +92,7 @@ public class RobotContainer {
     SmartDashboard.putData("Auto:", chooser);
     // Configure the button bindings
     configureButtonBindings();  
+    limelight.periodic();
   }
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
